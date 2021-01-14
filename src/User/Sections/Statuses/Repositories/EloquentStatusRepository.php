@@ -5,6 +5,7 @@ namespace AwemaPL\Task\User\Sections\Statuses\Repositories;
 use AwemaPL\Task\User\Sections\Statuses\Models\Contracts\Taskable;
 use AwemaPL\Task\User\Sections\Statuses\Models\Status;
 use AwemaPL\Task\User\Sections\Statuses\Repositories\Contracts\StatusRepository;
+use AwemaPL\Task\User\Sections\Statuses\Resources\EloquentStatus;
 use AwemaPL\Task\User\Sections\Statuses\Scopes\EloquentStatusescopes;
 use AwemaPL\Repository\Eloquent\BaseRepository;
 use AwemaPL\Task\User\Sections\Statuses\Services\TaskStatus;
@@ -88,5 +89,21 @@ class EloquentStatusRepository extends BaseRepository implements StatusRepositor
                 ->where('taskable_id', $taskable->getKey());
         }
         return $query->exists();
+    }
+    /**
+     * Get widget statuses
+     *
+     * @param int $userId
+     * @param array $types
+     * @return array
+     */
+    public function getWidgetStatuses(int $userId, array $types):array{
+        $statuses = Status::where('user_id', $userId)->whereIn('type', $types)->orderBy('created_at', 'DESC')->get();
+        $data = [];
+        foreach ($statuses as $status){
+            $status = EloquentStatus::make($status)->jsonSerialize();
+            array_push($data, $status);
+        }
+        return $data;
     }
 }

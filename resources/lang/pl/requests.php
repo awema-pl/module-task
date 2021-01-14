@@ -20,7 +20,14 @@ return [
         ],
     ],
     'user' =>[
-        
+        'status'=>[
+            'attributes' => [
+                'types' => 'typy statusów',
+            ],
+            'messages'=>[
+
+            ]
+        ],
     ],
 
 ];

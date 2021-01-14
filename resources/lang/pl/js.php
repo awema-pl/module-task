@@ -1,5 +1,8 @@
 <?php
 
 return [
-    'STATUSES' => 'Statusy',
+    'PROCESSES' => 'Procesy',
+    'LOADING' =>'Ładowanie...',
+    'STATUS' =>'Status',
+    'OPTIONS'=>'Opcje',
 ];

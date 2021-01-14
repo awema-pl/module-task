@@ -38,7 +38,7 @@ return [
             'interrupt' => 'Przerwij zadanie',
             'are_you_sure_interrupt_status'=>'Czy na pewno przerwać zadanie?',
             'confirm' =>'Potwierdź',
-            'types'=>[
+            'statuses'=>[
                   'queued' => 'w kolejce',
                   'executing' => 'wykonywane',
                   'finished'=>'zakończone',

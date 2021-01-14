@@ -96,6 +96,9 @@ class Task implements TaskContract
             $this->router
                 ->post('/interrupt/{id?}', '\AwemaPL\Task\User\Sections\Statuses\Http\Controllers\StatusController@interrupt')
                 ->name('interrupt');
+            $this->router
+                ->post('/widget', '\AwemaPL\Task\User\Sections\Statuses\Http\Controllers\StatusController@widget')
+                ->name('widget');
         });
     }
 

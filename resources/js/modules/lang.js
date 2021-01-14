@@ -1,3 +1,6 @@
 export default {
-    STATUSES: 'Statuses',
+    PROCESSES: 'Processes',
+    LOADING: 'Loading...',
+    STATUS: 'Status',
+    OPTIONS: 'Options',
 }

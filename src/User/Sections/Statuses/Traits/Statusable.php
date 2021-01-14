@@ -21,7 +21,7 @@ trait Statusable
      * @param Taskable|null $taskable
      * @param bool $uniqueTaskable
      */
-    public function addStatus(string $type, ?string $typeKey = null, ?Taskable $taskable = null, bool $uniqueTaskable = false):void
+    public function addStatus(string $type, ?string $typeKey = null, ?Taskable $taskable = null, bool $uniqueTaskable = false, int $userId = null):void
     {
         $statuses = $this->getStatuses();
         if ($uniqueTaskable && $statuses->exists($type ,$taskable)){
@@ -35,6 +35,9 @@ trait Statusable
         if ($taskable){
             $data['taskable_type'] = get_class($taskable);
             $data['taskable_id'] = $taskable->getKey();
+        }
+        if ($userId){
+            $data['user_id'] =$userId;
         }
         $status = $statuses->create($data);
         $this->statusId = $status->getKey();

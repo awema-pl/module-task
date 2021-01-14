@@ -20,6 +20,6 @@ export function exampleFunction() {
 
 export function consoleDebug(message, ...optionalParams){
     if (AWEMA_CONFIG.dev === true){
-        console.debug(message, optionalParams);
+        optionalParams.length ?  console.debug(message, ...optionalParams) :  console.debug(message)
     }
 }

@@ -51,4 +51,13 @@ interface StatusRepository
      * @return bool
      */
     public function exists(string $type, ?Taskable $taskable = null, array $statuses =[TaskStatus::QUEUED, TaskStatus::EXECUTING]): bool;
+
+    /**
+     * Get widget statuses
+     * 
+     * @param int $userId
+     * @param array $types
+     * @return array
+     */
+    public function getWidgetStatuses(int $userId, array $types):array;
 }

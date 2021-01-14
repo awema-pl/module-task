@@ -1,5 +1,4 @@
-// importing components
-import task from '../../vue/task.vue'
+import taskStatus from '../../vue/task-status.vue'
 // import { loadExternalLib } from '../utils/externalLib.js'
 
 export function install(Vue) {
@@ -7,7 +6,8 @@ export function install(Vue) {
     if ( this.installed ) return
     this.installed = true
 
-    /Vue.component('task', task)
+    Vue.component('task-status', taskStatus)
+
     // Vue.component('example-component', resolve => {
     //     AWEMA.utils.loadModule(
     //         'vue-example-plugin',
@@ -21,8 +21,6 @@ export function install(Vue) {
 }
 
 export default {
-
     installed: false,
-
     install
 }

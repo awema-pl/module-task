@@ -5,6 +5,7 @@ namespace AwemaPL\Task\User\Sections\Statuses\Http\Controllers;
 use AwemaPL\Task\Client\Api\ConnectionValidator;
 use AwemaPL\Task\Client\Api\TaskApiException;
 use AwemaPL\Task\Client\TaskClient;
+use AwemaPL\Task\User\Sections\Statuses\Http\Requests\WidgetStatus;
 use AwemaPL\Task\User\Sections\Statuses\Models\Status;
 use AwemaPL\Task\Admin\Sections\Settings\Repositories\Contracts\SettingRepository;
 use AwemaPL\Auth\Controllers\Traits\RedirectsTo;
@@ -69,5 +70,19 @@ class StatusController extends Controller
         $this->authorize('isOwner', Status::find($id));
         $this->statuses->interrupt($id);
         return notify(_p('task::notifies.user.status.status_abort_successfully', 'Status abort successfully.'));
+    }
+
+    /**
+     * Widget status
+     *
+     * @param WidgetStatus $request
+     * @return array
+     * @throws \Illuminate\Auth\Access\AuthorizationException
+     */
+    public function widget(WidgetStatus $request)
+    {
+        $userId = $request->user()->id;
+        $statuses = $this->statuses->getWidgetStatuses($userId, $request->types);
+        return $this->ajax($statuses);
     }
 }

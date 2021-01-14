@@ -26,7 +26,12 @@ return [
             "meta_title" => "Statuses",
             "meta_description" => "Task statuses in the system.",
             "headline" => "Statuses",
-            "statuses" => "Statuses",
+            "statuses" => [
+                "failed" => "failed",
+                "executing" => "executing",
+                "queued" => "queued",
+                "finished" => "finished"
+            ],
             "type" => "Type",
             "interrupted" => "Interrupted",
             "status" => "Status",
