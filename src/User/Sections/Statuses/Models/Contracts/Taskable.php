@@ -6,7 +6,7 @@ interface Taskable
 {
     /**
      * Get key
-     *
+     * 
      * @return mixed
      */
     public function getKey();
