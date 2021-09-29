@@ -5,10 +5,11 @@ namespace AwemaPL\Task\User\Sections\Statuses\Models;
 use betterapp\LaravelDbEncrypter\Traits\EncryptableDbAttribute;
 use Illuminate\Database\Eloquent\Model;
 use AwemaPL\Task\User\Sections\Statuses\Models\Contracts\Status as StatusContract;
+use Illuminate\Database\Eloquent\Prunable;
 
 class Status extends Model implements StatusContract
 {
-    use EncryptableDbAttribute;
+    use EncryptableDbAttribute, Prunable;
 
     /** @var array The attributes that should be encrypted/decrypted */
     protected $encryptable = [
@@ -62,4 +63,13 @@ class Status extends Model implements StatusContract
         return $this->belongsTo(config('auth.providers.users.model'));
     }
 
+    /**
+     * Get the prunable model query.
+     *
+     * @return \Illuminate\Database\Eloquent\Builder
+     */
+    public function prunable()
+    {
+        return static::where('created_at', '<=', now()->subDays(14));
+    }
 }
