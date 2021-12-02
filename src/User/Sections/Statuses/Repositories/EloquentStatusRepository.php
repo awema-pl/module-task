@@ -98,7 +98,11 @@ class EloquentStatusRepository extends BaseRepository implements StatusRepositor
      * @return array
      */
     public function getWidgetStatuses(int $userId, array $types):array{
-        $statuses = Status::where('user_id', $userId)->whereIn('type', $types)->orderBy('created_at', 'DESC')->get();
+        $minCreatedAt = now();
+        $minCreatedAt->subDays(2);
+        $statuses = Status::where('user_id', $userId)->whereIn('type', $types)
+            ->where('created_at' , '>=', $minCreatedAt)
+            ->orderBy('created_at', 'DESC')->get();
         $data = [];
         foreach ($statuses as $status){
             $status = EloquentStatus::make($status)->jsonSerialize();
