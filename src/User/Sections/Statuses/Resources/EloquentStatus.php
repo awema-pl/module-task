@@ -21,7 +21,7 @@ class EloquentStatus extends JsonResource
             'type_trans' => _p($this->type_key, str_replace('_', ' ', $this->type)),
             'interrupt' => $this->interrupt,
             'status' => $this->status,
-            'status_trans' =>_p('task::pages.user.status.statuses.' . $this->status, $this->status),
+            'status_trans' =>_p('task::pages.user.status.type_statuses.' . $this->status, $this->status),
             'status_detail_trans' =>_p($this->status_detail_key, $this->status_detail_key, $this->status_detail_placeholders),
             'error' =>$this->error,
             'created_at' =>$this->created_at->format('Y-m-d H:i:s'),
