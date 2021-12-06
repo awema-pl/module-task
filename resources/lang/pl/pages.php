@@ -43,7 +43,8 @@ return [
                   'executing' => 'wykonywane',
                   'finished'=>'zakończone',
                   'failed' => 'nie powiodło się',
-            ]
+            ],
+            'error_detail' =>'Szczegóły błędu'
         ],
     ],
 ];

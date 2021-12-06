@@ -3,6 +3,7 @@
 namespace AwemaPL\Task\User\Sections\Statuses\Resources;
 
 use Illuminate\Http\Resources\Json\JsonResource;
+use Throwable;
 
 class EloquentStatus extends JsonResource
 {

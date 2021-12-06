@@ -66,7 +66,7 @@ trait Statusable
         $statuses = $this->getStatuses();
         $statuses->update([
             'status' =>TaskStatus::FAILED,
-            'error' => serialize($exception),
+            'error' => $exception,
         ], $this->statusId);
     }
 

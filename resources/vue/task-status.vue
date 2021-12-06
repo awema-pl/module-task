@@ -27,9 +27,9 @@
                                             <button type="submit" slot="toggler" class="btn">
                                                 {{$lang.OPTIONS}}
                                             </button>
-<!--                                            <cm-button>-->
-<!--                                                -->
-<!--                                            </cm-button>-->
+                                            <cm-button v-if="col.data.error" @click="AWEMA._store.commit('setData', {param: 'errorDetailStatus', data: col.data}); AWEMA.emit('modal::error_detail_status:open')">
+                                                {{$lang.ERROR_DETAIL}}
+                                            </cm-button>
                                         </context-menu>
                                     </template>
                                 </tb-column>
@@ -48,6 +48,8 @@
         <!--        <button class="form-builder__send btn" @click="testLoading">Test loading</button>-->
         <!--        <span v-if="isLoading">is loading...</span>-->
         <!--    </p>-->
+
+
     </div>
 </template>
 

@@ -3,4 +3,5 @@ export default {
     LOADING: 'Loading...',
     STATUS: 'Status',
     OPTIONS: 'Options',
+    ERROR_DETAIL: 'Error detail',
 }

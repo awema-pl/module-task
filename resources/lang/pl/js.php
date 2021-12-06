@@ -5,4 +5,5 @@ return [
     'LOADING' =>'Ładowanie...',
     'STATUS' =>'Status',
     'OPTIONS'=>'Opcje',
+    'ERROR_DETAIL' =>'Szczegóły błędu'
 ];
