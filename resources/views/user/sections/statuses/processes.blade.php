@@ -1,4 +1,4 @@
-<task-status class="mt-15" :types=@json($types) name="{{'task-sources-' . ($name ?? '0')}}" url="{{ route('task.user.status.widget')}}"></task-status>
+<task-status class="mt-15" :types=@json($types) url="{{ route('task.user.status.widget')}}"></task-status>
 
 @push('scripts')
     <div class="modals">
