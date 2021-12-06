@@ -8,7 +8,7 @@ return [
             [
                 'name' => 'Tasks',
                 'link' => '/task/statuses',
-                'icon' => 'speed',
+                'icon' => 'schedule',
                 'key' => 'task::menus.tasks',
                 'children_top' => [
                     [
