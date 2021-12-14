@@ -123,7 +123,7 @@ class Task implements TaskContract
      */
     public function isMigrated()
     {
-        $tablesInDb = array_map('reset', DB::select('SHOW TABLES'));
+        $tablesInDb = \DB::connection()->getDoctrineSchemaManager()->listTableNames();
 
         $tables = array_values(config('task.database.tables'));
         foreach ($tables as $table){
