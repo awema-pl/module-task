@@ -41,7 +41,8 @@ return [
             "options" => "Options",
             "interrupt" => "Interrupt",
             "are_you_sure_interrupt_status" => "Are you sure interrupt the status?",
-            "confirm" => "Confirm"
+            "confirm" => "Confirm",
+            "error_detail" => "Error detail"
         ]
     ]
 ];
